@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import uz.shox.fragmentstask.fragment.FirstFragment
 import uz.shox.fragmentstask.fragment.SecondFragment
+import uz.shox.fragmentstask.model.User
 
 class SecondActivity : AppCompatActivity(), FirstFragment.FirstListener, SecondFragment.SecondListener {
 
@@ -23,12 +24,12 @@ class SecondActivity : AppCompatActivity(), FirstFragment.FirstListener, SecondF
             .commit()
     }
 
-    override fun onFirstSend(str: String?) {
-            secondFragment!!.updateSecondText("Google")
+    override fun onFirstSend(user: User?) {
+            secondFragment!!.updateSecondText(user)
     }
 
-    override fun onSecondSend(str: String?) {
-        firstFragment!!.updateFirstText(str)
+    override fun onSecondSend(user: User?) {
+        firstFragment!!.updateFirstText(user)
     }
 
 

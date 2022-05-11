@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import uz.shox.fragmentstask.R
+import uz.shox.fragmentstask.model.User
 
 class SecondFragment: Fragment() {
     private var listener: SecondListener? = null
@@ -27,8 +28,9 @@ class SecondFragment: Fragment() {
     fun initViews(view: View) {
         tv_second = view.findViewById(R.id.secondText)
         val b_second = view.findViewById<Button>(R.id.secondSendBtn)
+        val users = User("Shox",22)
         b_second.setOnClickListener {
-            listener!!.onSecondSend("Okey1") }
+            listener!!.onSecondSend(users) }
     }
 
     override fun onAttach(context: Context) {
@@ -45,11 +47,11 @@ class SecondFragment: Fragment() {
         listener = null
     }
 
-    fun updateSecondText(str: String?) {
-        tv_second!!.text = str
+    fun updateSecondText(user: User?) {
+        tv_second!!.text = user.toString()
     }
 
     interface SecondListener {
-        fun onSecondSend(str: String?)
+        fun onSecondSend(user: User?)
     }
 }

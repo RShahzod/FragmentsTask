@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import uz.shox.fragmentstask.R
+import uz.shox.fragmentstask.model.User
 
 class FirstFragment: Fragment() {
 
@@ -24,7 +25,8 @@ class FirstFragment: Fragment() {
     fun initViews(view: View) {
         tv_first = view.findViewById(R.id.firstText)
         val b_first= view.findViewById<Button>(R.id.firstSendBtn)
-        b_first.setOnClickListener { listener!!.onFirstSend("Google1") }
+        val users = User("Shahzod",23)
+        b_first.setOnClickListener { listener!!.onFirstSend(users) }
     }
 
     override fun onAttach(context: Context) {
@@ -41,11 +43,11 @@ class FirstFragment: Fragment() {
         listener = null
     }
 
-    fun updateFirstText(str: String?) {
-        tv_first!!.text = str
+    fun updateFirstText(str: User?) {
+        tv_first!!.text = str.toString()
     }
 
     interface FirstListener {
-        fun onFirstSend(str: String?)
+        fun onFirstSend(user: User?)
     }
 }
