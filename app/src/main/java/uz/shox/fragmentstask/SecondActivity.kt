@@ -15,6 +15,8 @@ class SecondActivity : AppCompatActivity(), FirstFragment.FirstListener, SecondF
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
+        //Update
+
         firstFragment = FirstFragment()
         secondFragment = SecondFragment()
 
